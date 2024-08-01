@@ -94,9 +94,19 @@ opacityButton.addEventListener('click', () => {
 });
 
 // Event listener for the container to toggle ink on and off
+// container.addEventListener('mousedown', () => {
+//     isMousedown = !isMousedown;
+//     inkOnButton.textContent = isMousedown ? 'Ink On' : 'Ink Off';
+// });
+
 container.addEventListener('mousedown', () => {
-    isMousedown = !isMousedown;
-    inkOnButton.textContent = isMousedown ? 'Ink On' : 'Ink Off';
+    isMousedown = true;
+    inkOnButton.textContent = "Ink On";
+});
+
+container.addEventListener('mouseup', () => {
+    isMousedown = false;
+    inkOnButton.textContent = "Ink Off";
 });
 
 // Initial setup
