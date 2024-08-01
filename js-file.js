@@ -54,8 +54,17 @@ function getRandomColor() {
 function ink(event) {
     if (isMousedown) {
         event.target.style.backgroundColor = rainbowMode ? getRandomColor() : colorButton.value;
+        let currentOpacity = parseFloat(event.target.style.opacity) || 0;
+        currentOpacity += 0.1;
+
+        if (currentOpacity > 1){
+            currentOpacity = 1;
+        }
+        event.target.style.opacity = currentOpacity;
     }
 }
+
+
 
 
 // Function to update event listeners for cells
