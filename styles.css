@@ -1,13 +1,19 @@
 #container{
     display: flex;
-    /* align-items: baseline; */
     border: 1px solid black;
     height: 960px;
     width: 960px;
     flex-wrap: wrap;
+    flex: 1;
 }
 
 .cell {
-    border: 1px solid black;
+    /* border: 1px solid rgb(0, 0, 0); */
     box-sizing: border-box;
+}
+
+#buttons{
+    display: flex;
+    margin: 30px;
+    gap: 10px;
 }
