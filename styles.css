@@ -1,0 +1,13 @@
+#container{
+    display: flex;
+    /* align-items: baseline; */
+    border: 1px solid black;
+    height: 960px;
+    width: 960px;
+    flex-wrap: wrap;
+}
+
+.cell {
+    border: 1px solid black;
+    box-sizing: border-box;
+}
