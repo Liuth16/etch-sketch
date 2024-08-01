@@ -6,6 +6,7 @@ let rainbowMode = false;
 const gridButton = document.querySelector('.grid-button');
 const rainbowButton = document.querySelector('.rainbow-button');
 const inkOnButton = document.querySelector('.ink-on');
+const colorButton = document.querySelector('#color');
 
 // Function to draw the grid
 function drawGrid(truesize) {
@@ -52,7 +53,7 @@ function getRandomColor() {
 // Function to handle ink (black or rainbow mode)
 function ink(event) {
     if (isMousedown) {
-        event.target.style.backgroundColor = rainbowMode ? getRandomColor() : 'black';
+        event.target.style.backgroundColor = rainbowMode ? getRandomColor() : colorButton.value;
     }
 }
 
