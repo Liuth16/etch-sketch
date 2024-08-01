@@ -3,9 +3,11 @@ const gridSize = 16;
 const container = document.querySelector('#container');
 let isMousedown = false;
 let rainbowMode = false;
+let opacityMode = false;
 const gridButton = document.querySelector('.grid-button');
 const rainbowButton = document.querySelector('.rainbow-button');
 const inkOnButton = document.querySelector('.ink-on');
+const opacityButton = document.querySelector('.opacity-mode');
 const colorButton = document.querySelector('#color');
 
 // Function to draw the grid
@@ -52,7 +54,7 @@ function getRandomColor() {
 
 // Function to handle ink (black or rainbow mode)
 function ink(event) {
-    if (isMousedown) {
+    if (isMousedown && opacityMode) {
         event.target.style.backgroundColor = rainbowMode ? getRandomColor() : colorButton.value;
         let currentOpacity = parseFloat(event.target.style.opacity) || 0;
         currentOpacity += 0.1;
@@ -61,6 +63,8 @@ function ink(event) {
             currentOpacity = 1;
         }
         event.target.style.opacity = currentOpacity;
+    } else if (isMousedown){
+        event.target.style.backgroundColor = rainbowMode ? getRandomColor() : colorButton.value;
     }
 }
 
@@ -82,6 +86,11 @@ gridButton.addEventListener('click', gridPrompt);
 rainbowButton.addEventListener('click', () => {
     rainbowMode = !rainbowMode;
     rainbowButton.textContent = rainbowMode ? 'Rainbow mode On' : 'Rainbow mode Off';
+});
+
+opacityButton.addEventListener('click', () => {
+    opacityMode = !opacityMode;
+    opacityButton.textContent = opacityMode ? 'Opacity Mode On' : 'Opacity Mode Off';
 });
 
 // Event listener for the container to toggle ink on and off
