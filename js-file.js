@@ -54,6 +54,7 @@ function getRandomColor() {
 function ink(event) {
     if (isMousedown) {
         event.target.style.backgroundColor = rainbowMode ? getRandomColor() : colorButton.value;
+        console.log(event.target.style.backgroundColor)
     }
 }
 
