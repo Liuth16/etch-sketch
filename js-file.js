@@ -26,9 +26,9 @@ function drawGrid(truesize) {
 
 // Function to handle the grid size prompt
 function gridPrompt() {
-    let getSize = prompt("Enter the grid size, the total cells will be the square of the number. Limit is 100.");
+    let getSize = prompt("Enter the grid size, single number only, the total cells will be the square of the number. Limit is 100 minimum is 2. Default is 16.");
     getSize = parseInt(getSize);
-    if (getSize > 100 || getSize < 0) {
+    if (getSize > 100 || getSize < 2) {
         gridPrompt();
     } else if (isNaN(getSize)) {
         drawGrid(gridSize);
@@ -65,6 +65,7 @@ function ink(event) {
         event.target.style.opacity = currentOpacity;
     } else if (isMousedown){
         event.target.style.backgroundColor = rainbowMode ? getRandomColor() : colorButton.value;
+        event.target.style.opacity = 1;
     }
 }
 
